@@ -14,23 +14,23 @@ const sampleEmployee = {
 };
 
 function App() {
-  const [employee, setEmployee] = useState(sampleEmployee)
+  const [employee, setEmployee] = useState(sampleEmployee);
 
   const getEmployee = () => {
-    fetch("https://randomuser.me/api?nat=en")
-    .then((response) => responde.json())
-    .then((data) => {
-      setEmployee(data.results[0]);
-    });
+    fetch("http://localhost:3310/api/employees")
+      .then((response) => response.json())
+      .then((data) => {
+        setEmployee(data.results[0]);
+      });
   };
 
   return (
-  
     <div className="App">
       <EmployeeCard employee={sampleEmployee} />
-      <button type="button" onClick={getEmployee}>Get employee</button>
+      <button type="button" onClick={getEmployee}>
+        Get employee
+      </button>
     </div>
-  
   );
 }
 
